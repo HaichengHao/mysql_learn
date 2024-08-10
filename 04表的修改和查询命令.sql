@@ -41,7 +41,42 @@ select student.name from student;
 -- 消除重复行distinct(明显不同的)
 -- select distinct 字段名 from 表名;
 select distinct gender from student;
+'''
+mysql> select distinct s.gender from students as s;
++--------+
+| gender |
++--------+
+| 女     |
+| 男     |
+| 保密   |
+| 中性   |
++--------+
+4 rows in set (0.00 sec)
+'''
 
 -- 可以通过 as 给表起别名，这样可以缩短表名.字段名查询方式的语句长度
 -- select 别名.字段 .... from 表名 as 别名;
 select s.name from students as s;
+mysql> select s.name from students as s;
+'''
++--------------+
+| name         |
++--------------+
+| 小明         |
+| 小月月       |
+| 彭于晏       |
+| 刘德华       |
+| 黄蓉         |
+| 凤姐         |
+| 王祖贤       |
+| 周杰伦       |
+| 程坤         |
+| 刘亦菲       |
+| 金星         |
+| 静香         |
+| 郭靖         |
+| 周杰         |
+| 凌小小       |
+| 司马二狗     |
++--------------+
+'''
