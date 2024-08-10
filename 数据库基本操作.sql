@@ -11,7 +11,14 @@ mysql -uroot -p
 
 --DDL
 -- 创建数据库
-create database 库名;
+create database  库名;
+-- 删除数据库
+drop database [if exists] 库名;
+-- 查看
+show databases;
+-- 使用数据库
+use 库名;
+
 
 --DDL
 -- 创建表
@@ -32,4 +39,7 @@ show create table students;
 
 -- 查看表结构
 desc 表名;
+
+-- 删除表
+drop table 表名；
 

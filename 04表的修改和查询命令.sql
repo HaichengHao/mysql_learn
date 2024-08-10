@@ -35,3 +35,9 @@ update student set cls_id=120, heigh=178.67 where name="德华";
 --DQL
 -- 改变字段的顺序
 select age,name from student;
+--DQL 另外的查询方式
+-- 使用 select 表名.字段名 from 表名; 的形式查询
+select student.name from student;
+-- 消除重复行distinct(明显不同的)
+-- select distinct 字段名 from 表名;
+select distinct gender from student;
