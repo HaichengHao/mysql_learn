@@ -41,3 +41,7 @@ select student.name from student;
 -- 消除重复行distinct(明显不同的)
 -- select distinct 字段名 from 表名;
 select distinct gender from student;
+
+-- 可以通过 as 给表起别名，这样可以缩短表名.字段名查询方式的语句长度
+-- select 别名.字段 .... from 表名 as 别名;
+select s.name from students as s;
