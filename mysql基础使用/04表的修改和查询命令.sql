@@ -57,8 +57,9 @@ mysql> select distinct s.gender from students as s;
 -- 可以通过 as 给表起别名，这样可以缩短表名.字段名查询方式的语句长度
 -- select 别名.字段 .... from 表名 as 别名;
 select s.name from students as s;
-mysql> select s.name from students as s;
+
 '''
+mysql> select s.name from students as s;
 +--------------+
 | name         |
 +--------------+

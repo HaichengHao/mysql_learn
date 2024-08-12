@@ -26,4 +26,9 @@ drop table 表名；
 -- 实例
 drop table python;
 
+--修改表名
+alter table 旧表名  rename as  新表名;
+
+rename table 旧表名 to 新表名;
+
 
