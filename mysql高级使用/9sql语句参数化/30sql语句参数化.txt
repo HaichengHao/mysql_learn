@@ -1,0 +1,68 @@
+#30sql语句参数化
+
+'''
+1 SQL注入 SQL Injection
+什么是sql注入？
+用户提交带有恶意的数据与sql语句进行字符串方式的拼接，从而影响了sql语句的语义，最终产生数据泄露现象
+
+SQL注入是如何产生的
+1使用用户参数拼接SQL语句
+2参数改变了原SQL语句的结构
+
+
+防止sql注入
+1 构造参数列表
+params = [find_name]
+2执行sql语句
+sql="select * from goods where name= %s" <--这里的%s不需要加引号
+result=cursor.execute(sql,params)
+'''
+import mysql.connector
+# 创建连接对象
+conn = mysql.connector.connect(
+    host='localhost',
+    port=3306,
+    database='python_test_1',
+    user='root',
+    password='HHCzio20.',
+    charset='utf8'
+)
+# 创建游标对象
+cursor = conn.cursor()
+
+# 不安全的方式
+# 根据id查询学生信息
+find_name=input('请输入你要查询的学生的姓名>>')
+# cursor.execute(f"select * from students where  name='{find_name}';")
+# content=cursor.fetchone()
+# print(content)
+#
+# cursor.close()
+# conn.close()
+'''
+正常输入是没有问题的
+请输入你要查询的学生的姓名>>邓超
+(17, '邓超', 59, Decimal('179.00'), '男', 2, 0)'''
+
+'''
+下面尝试恶意输入 
+'or 1 or'
+这样会得到所有信息，产生数据泄露
+即查询的语句成了 select * from students where name = ''or 1 or '';
+产生了逻辑运算符 ，即 '' (空字符串false) or 1(非零即为true) '' (空字符串false) ,这样假or真or假即绝对为真
+那么where 其实就没有起到作用 ，那么其实就是只有前面的select * from students 执行，会返回所有的数据
+'''
+
+# 安全的方式
+# 构造参数列表
+params=[find_name]
+cursor.execute("select * from students where name=%s",params) #注意这里的%s后不需要加上引号
+content=cursor.fetchone()
+print(content)
+
+cursor.close()
+conn.close()
+'''
+请输入你要查询的学生的姓名>>' or 1 or '
+None'''
+# 这样就不会产生sql数据表泄露了
