@@ -1,0 +1,48 @@
+28python连接mysql
+我们可以使用通过程序代码的方式连接mysql数据库，然后对mysql数据库进行增删改查操作，实现数据的插入，像这样使用代码的方式操作数据库就称为数据库编程
+
+安装pymysql第三方包或者mysql.connector
+
+
+步骤
+1 导入pymysql包
+import pymysql 或 import mysql.connector
+
+
+
+2 创建连接对象
+conn = mysql.connector.connect(
+	host:连接的mysql主机，如果是本机就写'localhost',
+	port: 端口号，默认是3306,
+	user:连接的用户名,
+	password:连接的密码,
+	database:数据库的名称,
+	charset:通信采用的编码方式，推荐utf8
+)
+
+
+
+3 获取游标对象
+获取游标对象的目标就是要执行sql语句，完成对数据的增删改查
+
+cursor = conn.cursor()
+游标操作说明
+a.使用游标执行sql语句:execute(operation[parameters])执行sql语句，返回受影响的行数，主要用于执行insert、update、delete、select语句
+b.获取查询结果集中的一条数据:cursor.fetchone()返回一个元组
+c.获取穿结果集中的所有数据:cursor.fetchall()返回一个元组
+d.关闭游标cursor.close()表示和数据库操作完成
+
+
+
+
+4 pymysql完成数据的增删改查操作
+cursor.execute(sql语句)
+
+
+
+5 关闭游标和连接
+连接对象的关闭操作
+cursor.close()关闭游标
+conn.close()关闭连接
+conn,commit()提交数据
+conn.rollback()回滚数据
