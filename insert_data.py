@@ -9,7 +9,7 @@ def main():
     cursor = conn.cursor()
     # 插入10万次数据
     for i in range(100000):
-        cursor.execute("insert into test_index values('ha-%d')" % i)
+        cursor.execute("insert into test_index values('ha-%d');" % i)
     # 提交数据
     conn.commit()
 
