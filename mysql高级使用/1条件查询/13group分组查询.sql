@@ -69,6 +69,11 @@ mysql> select gender,avg(age) from students group by gender;
 '''
 
 --having(重点)
+-- having与where的区别:
+-- having是在分组后对数据进行过滤
+-- where是在分组前对数据进行过滤
+-- having后面可以使用聚合函数
+-- where后面不可以使用聚合
 -- 查询平均年龄超过38岁的性别，以及姓名
 select gender,group_concat(name) from students group by gender having avg(age)>30;
 '''

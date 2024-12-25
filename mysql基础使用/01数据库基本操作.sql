@@ -22,7 +22,7 @@ use 库名;
 
 --DDL
 -- 创建表
-create table 表名{
+create table 表名（
 	id int unsigned primary key auto_increament not null,
 	name varchar(20) not null,
 	age int unsigned default 0,
@@ -30,7 +30,7 @@ create table 表名{
 	gender enum("男","女"),
 	cls_id int unsigned
 
-	};
+	）;
 
 -- DQL
 -- 查看表的创建语句

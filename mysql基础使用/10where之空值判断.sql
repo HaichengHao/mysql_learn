@@ -15,4 +15,4 @@ mysql> select * from students where height is null;
 1 row in set (0.00 sec)
 '''
 -- 查询非空,取反操作加上not即可
-select * from students where height not is null;
+select * from students where height is not null;

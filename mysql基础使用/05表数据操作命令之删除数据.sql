@@ -17,7 +17,7 @@ select * from student where is_delete=0;
 
 --新补充
 truncate table 表名; --删除表的所有记录
---truncate删除数据，过程先将整个表删除再创建
+--truncate删除数据，过程先整个表删除再创建
 --delete 删除数据 逐行删除记录
 
 -- truncate属于DDL,delete 属于DML 事务管理只对DML有效，被事务管理sql语句可以回滚到sql执行前的状态
