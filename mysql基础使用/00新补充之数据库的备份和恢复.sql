@@ -27,3 +27,19 @@ create database python_test;
 -- 开始恢复
 mysql -uroot -pxxxx python_test < d://mysql//backup.sql;
 
+
+-- 修改mysql的字符集：
+mysql> set character_set_client=utf8;
+mysql> set character_set_connection=utf8;
+mysql> set character_set_database=utf8;
+mysql> set character_set_results=utf8;
+mysql> set character_set_server=utf8;
+mysql> set character_set_system=utf8;
+mysql> set collation_connection=utf8;
+
+-- 修改数据库的字符集：
+alter database test character set utf8;
+-- 修改数据表的字符集：
+alter table Student character set utf8;
+-- 修改数据表字段的字符集：
+alter table Student change Sname Sname varchar(10) character set utf8;

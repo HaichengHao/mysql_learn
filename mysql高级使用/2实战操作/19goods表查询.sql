@@ -1,7 +1,7 @@
 --19goods表查询
 
 --查询类型cate_name为"超极本"的商品名称
-select name from goods where cate_name="超极本";
+select name from goods where cate_name="超级本";
 
 
 --显示商品的种类
