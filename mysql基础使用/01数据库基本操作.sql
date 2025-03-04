@@ -23,7 +23,7 @@ use 库名;
 --DDL
 -- 创建表
 create table 表名（
-	id int unsigned primary key auto_increament not null,
+	id int unsigned primary key auto_increment not null,
 	name varchar(20) not null,
 	age int unsigned default 0,
 	high decimal(5,2),

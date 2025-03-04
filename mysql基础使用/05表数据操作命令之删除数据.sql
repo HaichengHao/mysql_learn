@@ -16,7 +16,7 @@ update student set is_delete=1 where id=1;
 select * from student where is_delete=0;
 
 --新补充
-truncate table 表名; --删除表的所有记录
+truncate table 表名; --删除表的所有记录,不能回滚
 --truncate删除数据，过程先整个表删除再创建
 --delete 删除数据 逐行删除记录
 
