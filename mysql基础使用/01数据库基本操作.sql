@@ -23,12 +23,12 @@ use 库名;
 --DDL
 -- 创建表
 create table 表名（
-	id int unsigned primary key auto_increment not null,
-	name varchar(20) not null,
-	age int unsigned default 0,
-	high decimal(5,2),
-	gender enum("男","女"),
-	cls_id int unsigned
+	id int unsigned primary key auto_increment not null comment "编号",
+	name varchar(20) not null comment "姓名",
+	age int unsigned default 0 comment "年龄",
+	high decimal(5,2) comment "身高",
+	gender enum("男","女") comment "性别",
+	cls_id int unsigned comment "班级编号"
 
 	）;
 
